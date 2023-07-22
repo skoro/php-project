@@ -1,0 +1,6 @@
+/.idea
+/.vscode
+/vendor/
+composer.phar
+.phpunit.cache
+config.php

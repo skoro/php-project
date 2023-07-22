@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - 8000:80
+

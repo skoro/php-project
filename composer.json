@@ -1,0 +1,51 @@
+{
+    "name": "skoro/php-project",
+    "description": "A project skeleton in pure php",
+    "type": "project",
+    "license": "MIT",
+    "keywords": ["project", "skeleton", "plain php"],
+    "authors": [
+        {
+            "name": "Oleksii Skorobogatko",
+            "email": "skorobogatko.oleksii@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "laminas/laminas-diactoros": "^3.0",
+        "sentry/sdk": "^3.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.2",
+        "symfony/var-dumper": "^6.3",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "My\\Project\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-f": "phpunit --filter=",
+        "check": "phpstan",
+        "test-check": [
+            "@test",
+            "@check"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    }
+}

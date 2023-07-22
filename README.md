@@ -13,8 +13,19 @@ Only static routes are allowed, if you need some dynamic, please use query argum
 
 The `/status` route is predefined and returns a response with some system info.
 
+## Logging
+There are two available functions for logging:
+- `logger(string $message, array $context)` which rely on [error_log](https://www.php.net/manual/en/function.error-log.php)
+    function.
+- `report_error(\Throwable $e, array $context)` as `logger` but also sends an exception to [Sentry](https://sentry.io)
+    when `SENTRY_DSN` constant is defined.
+
 ## Documentation
 Use `./public/openapi.yml` to document your API.
+
+## Missing features:
+- DI
+- Advanced routing
 
 ## Tests
 ```shell

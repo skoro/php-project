@@ -23,12 +23,13 @@ There are two available functions for logging:
 ## Documentation
 Use `./public/openapi.yml` to document your API.
 
-## Missing features:
-- DI
-- Advanced routing
-
 ## Tests
 ```shell
 composer test
 composer check
 ```
+
+## Missing features:
+- DI
+- Advanced routing
+- Database

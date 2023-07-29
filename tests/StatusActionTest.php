@@ -69,8 +69,8 @@ class StatusActionTest extends TestCase
     public function test_status_action_json_structure_cpu(): void
     {
         $json = $this->getStatusActionJsonResponse();
-        $this->assertArrayHasKey('cpu_load', $json);
-        $this->assertCount(3, $json['cpu_load']);
+        $this->assertArrayHasKey('sysload', $json);
+        $this->assertCount(3, $json['sysload']);
     }
 
     /**

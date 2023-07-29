@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace My\Project\Http\Actions;
+namespace App\Http\Actions;
 
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface as Request;

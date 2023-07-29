@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace My\Project\Http\Actions;
+namespace App\Http\Actions;
 
 use JsonException;
-use My\Project\Exceptions\BadRequestException;
+use App\Exceptions\BadRequestException;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 use const JSON_THROW_ON_ERROR;

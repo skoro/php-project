@@ -19,7 +19,7 @@ class StatusAction implements Action
                 'memory' => number_format(memory_get_peak_usage()),
             ],
             'disk'     => $this->getDiskStats(),
-            'cpu_load' => $this->getCpuLoad(),
+            'sysload'  => sys_getloadavg(),
         ]);
     }
 
@@ -38,17 +38,5 @@ class StatusAction implements Action
             'used'   => number_format($used),
             'used_%' => (int)ceil(($used/$total)*100),
         ];
-    }
-
-    /**
-     * @return array<float>|null
-     */
-    private function getCpuLoad(): array|null
-    {
-        if (($loadavg = @file_get_contents('/proc/loadavg')) === false) {
-            return null;
-        }
-
-        return array_map('floatval', array_slice(explode(' ', $loadavg), 0, length: 3));
     }
 }

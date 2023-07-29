@@ -57,9 +57,9 @@ paths:
                         type: integer
                         description: Disk used space percentage
                         example: '9'
-                  cpu_load:
+                  sysload:
                     type: array
-                    description: CPU average load for 1, 5 and 15 minutes.
+                    description: The three samples representing the average system load (the number of processes in the system run queue) over the last 1, 5 and 15 minutes, respectively.
                     items:
                       type: number
                     minItems: 3

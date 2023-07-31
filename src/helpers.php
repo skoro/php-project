@@ -60,3 +60,10 @@ if (!function_exists('cpu_cores_count')) {
         return $cores ?? throw new RuntimeException('Cannot get cpu cores count for your OS: ' . PHP_OS_FAMILY);
     }
 }
+
+if (!function_exists('json_response')) {
+    function json_response(mixed $data, int $statusCode = 200): \Laminas\Diactoros\Response\JsonResponse
+    {
+        return new \Laminas\Diactoros\Response\JsonResponse($data, $statusCode);
+    }
+}

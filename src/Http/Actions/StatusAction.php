@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace My\Project\Http\Actions;
 
-use Laminas\Diactoros\Response\JsonResponse;
+use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class StatusAction implements Action
 {
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(Request $request): Response
     {
-        return new JsonResponse([
+        return json_response([
             'status' => 'ok',
             'php' => [
                 'ver'    => PHP_VERSION,

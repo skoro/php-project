@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace My\Project\Exceptions;
+namespace App\Exceptions;
 
 class Exception extends \Exception
 {

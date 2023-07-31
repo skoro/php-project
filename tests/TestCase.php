@@ -6,7 +6,7 @@ namespace Tests;
 
 use Laminas\Diactoros\ServerRequest;
 use Laminas\Diactoros\StreamFactory;
-use My\Project\Http\Actions\Action;
+use App\Http\Actions\Action;
 use Psr\Http\Message\ServerRequestInterface;
 
 class TestCase extends \PHPUnit\Framework\TestCase

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace My\Project\Exceptions;
+namespace App\Exceptions;
 
 /**
  * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use My\Project\Exceptions\NotFoundException;
+use App\Exceptions\NotFoundException;
 
 class RoutesTest extends TestCase
 {

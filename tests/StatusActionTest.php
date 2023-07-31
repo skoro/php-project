@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Laminas\Diactoros\Response\JsonResponse;
-use My\Project\Http\Actions\StatusAction;
+use App\Http\Actions\StatusAction;
 use Psr\Http\Message\ServerRequestInterface;
 
 class StatusActionTest extends TestCase

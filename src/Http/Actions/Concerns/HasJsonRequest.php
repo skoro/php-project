@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace My\Project\Http\Actions\Concerns;
+namespace App\Http\Actions\Concerns;
 
+use App\Exceptions\BadRequestException;
 use JsonException;
-use My\Project\Exceptions\BadRequestException;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 use function in_array;

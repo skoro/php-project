@@ -11,7 +11,7 @@ try {
     $uri    = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
     $method = $_SERVER['REQUEST_METHOD'] ?? '';
 
-    /** @var \My\Project\Http\Actions\Action $action */
+    /** @var \App\Http\Actions\Action $action */
     $action = (require_once ROOT_DIR . '/src/Http/routes.php')($method, $uri);
 
     /** @var \Psr\Http\Message\ResponseInterface $response */

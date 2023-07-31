@@ -38,7 +38,7 @@ $server->on('request', function (\Swoole\Http\Request $request, \Swoole\Http\Res
             files: $request->files,
         );
 
-        /** @var \My\Project\Http\Actions\Action $action */
+        /** @var \App\Http\Actions\Action $action */
         $action = $actionCallback($method, $request->server['request_uri']);
 
         if ($method !== 'GET') {

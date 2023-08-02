@@ -3,14 +3,14 @@
 define('ROOT_DIR', dirname(__DIR__));
 
 if (!extension_loaded('swoole')) {
-    die("For standalone server 'swoole' extension is required.");
+    die("Error: for standalone server 'swoole' extension is required.\n");
 }
 
 require_once ROOT_DIR . '/vendor/autoload.php';
 
 $server = new \Swoole\Http\Server('0.0.0.0', 9501, SWOOLE_BASE);
 $server->set([
-    'worker_num' => cpu_cores_count(),
+    //'worker_num' => swoole_cpu_num(),
 ]);
 
 $actionCallback = require_once ROOT_DIR . '/src/Http/routes.php';

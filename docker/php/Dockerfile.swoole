@@ -1,0 +1,29 @@
+FROM php:8.2-cli
+
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+      unzip \
+      libc-ares-dev \
+      libssl-dev \
+      libcurl4-openssl-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-enable opcache \
+    && docker-php-ext-install sockets \
+    && pecl install --configureoptions='enable-sockets="yes" enable-openssl="yes" enable-mysqlnd="yes" enable-cares="yes" enable-swoole-curl="yes" enable-brotli="yes"' swoole-5.0.3 \
+    && docker-php-ext-enable swoole \
+    && rm -rf /tmp/pear
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+COPY docker/php/docker-php-entrypoint.sh /usr/local/bin/docker-php-entrypoint
+RUN chmod 775 /usr/local/bin/docker-php-entrypoint
+
+# copy sources to work dir
+COPY . /var/www/html
+
+WORKDIR /var/www/html
+
+ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
+CMD ["php", "/var/www/html/bin/server.php"]

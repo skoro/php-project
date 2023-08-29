@@ -3,6 +3,12 @@ A project skeleton in pure php. This skeleton can be used to prototype
 some simple services where the usage of a framework is over bloated.
 
 ## Getting started
+There is two choices of running the application:
+1. php-fpm
+2. swoole
+
+All those build by default as `app` and `app-server` containers.
+
 ```shell
 docker-compose up -d
 ```

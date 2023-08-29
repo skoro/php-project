@@ -2,9 +2,20 @@ services:
   app:
     build:
       context: .
+      dockerfile: ./docker/php/Dockerfile.fpm
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+
+  app-server:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile.swoole
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 9501:9501
 
   nginx:
     image: nginx:latest

@@ -15,7 +15,8 @@
         "php": ">=8.2",
         "ext-json": "*",
         "laminas/laminas-diactoros": "^3.0",
-        "sentry/sdk": "^3.5"
+        "sentry/sdk": "^3.5",
+        "zircote/swagger-php": "^4.7"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.2",
@@ -39,6 +40,13 @@
             "Tests\\": "tests/"
         }
     },
+    "scripts-descriptions": {
+        "make-api": "Make OpenAPI documentation (./public/openapi.yml)",
+        "test": "Run test cases",
+        "test-f": "Run only specified test cases",
+        "check": "Run static analyzer",
+        "test-check": "Run test cases and static analyzer"
+    },
     "scripts": {
         "test": "phpunit",
         "test-f": "phpunit --filter=",
@@ -46,7 +54,8 @@
         "test-check": [
             "@test",
             "@check"
-        ]
+        ],
+        "make-api": "openapi -o ./public/openapi.yml src"
     },
     "config": {
         "allow-plugins": {

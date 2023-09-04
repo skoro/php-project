@@ -4,3 +4,4 @@
 composer.phar
 .phpunit.cache
 config.php
+/public/openapi.yml

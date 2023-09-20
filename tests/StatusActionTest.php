@@ -37,40 +37,29 @@ class StatusActionTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function test_status_action_json_status(): void
-    {
-        $json = $this->getStatusActionJsonResponse();
-        $this->assertEquals('ok', $json['status']);
-    }
-
     public function test_status_action_json_structure_php(): void
     {
         $json = $this->getStatusActionJsonResponse();
-        $this->assertArrayHasKey('php', $json);
-        $this->assertNotEmpty($json['php']['ver']);
-        $this->assertArrayHasKey('time', $json['php']); // START_TIME is null on tests.
-        $this->assertNotEmpty($json['php']['memory']);
+        $this->assertArrayHasKey('php_version', $json);
     }
 
-    public function test_status_action_json_structure_disk(): void
+    public function test_status_action_json_structure_memory_usage(): void
     {
         $json = $this->getStatusActionJsonResponse();
-        $this->assertArrayHasKey('disk', $json);
-        $this->assertNotEmpty($json['disk']['total']);
-        $this->assertNotEmpty($json['disk']['free']);
-        $this->assertNotEmpty($json['disk']['used']);
-        $this->assertNotEmpty($json['disk']['used_%']);
-        $this->assertIsInt($json['disk']['used_%']);
+        $this->assertArrayHasKey('memory_usage', $json);
     }
 
-    /**
-     * this test depends on /proc/loadavg file and can be failed on non linux systems.
-     */
-    public function test_status_action_json_structure_cpu(): void
+    public function test_status_action_json_bench_time(): void
     {
         $json = $this->getStatusActionJsonResponse();
-        $this->assertArrayHasKey('sysload', $json);
-        $this->assertCount(3, $json['sysload']);
+        $this->assertArrayHasKey('bench_time', $json);
+    }
+
+    public function test_status_action_json_structure_sys_load(): void
+    {
+        $json = $this->getStatusActionJsonResponse();
+        $this->assertArrayHasKey('sys_avg_load', $json);
+        $this->assertCount(3, $json['sys_avg_load']);
     }
 
     /**

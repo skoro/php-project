@@ -27,7 +27,12 @@ There are two available functions for logging:
     when `SENTRY_DSN` constant is defined.
 
 ## Documentation
-Use `./public/openapi.yml` to document your API.
+[swagger-php](http://zircote.github.io/swagger-php/) is used for generating documentation
+in OpenAPI format:
+```shell
+composer make-api
+```
+
 
 ## Tests
 ```shell
